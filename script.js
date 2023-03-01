@@ -11,11 +11,13 @@ let result
 let compScore
 let usersScore
 
+
 possibleOptions.forEach(possibleOptions => possibleOptions.addEventListener('click', (e) => {
   userChoice = e.target.id
   userChoiceDisplay.innerHTML = userChoice
   generateComputerChoice()
   getResult()
+  
 }))
 
 function generateComputerChoice() {
@@ -76,12 +78,17 @@ function getResult() {
     compScore = compScore + 1 
   }    
 
-  if (compScore === 10 && usersScore < 10) {
+  if (compScore === 11 && usersScore < 11) {
     result = ('GAME OVER! You Lost' )
-      
-  }
-  if (usersScore === 10 && compScore < 10) {
+    compScore = 0 
+    usersScore = 0
+  }  
+   
+
+  if (usersScore === 11 && compScore < 11) {
     result = ('Nice Job! You Won!' )
+    compScore = 0 
+    usersScore = 0
      
   }
   
